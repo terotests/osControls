@@ -491,15 +491,17 @@
             if (!this._activeFolder) {
               var newName = prompt("Give new name to folder");
               if (newName) {
-                this.model().push({
+                var items = this.model();
+                if (!items.isArray()) items = items.items;
+                if (!items) return;
+                items.push({
                   title: newName,
                   icon: "fa fa-folder",
                   viewClass: "dataView1",
                   "active": false,
                   items: []
                 }); // move to index 0
-                var list = this.model();
-                var lastItem = list.at(list.length() - 1);
+                var lastItem = items.at(list.length() - 1);
                 lastItem.moveToIndex(0);
               }
             }
