@@ -501,7 +501,7 @@
                   "active": false,
                   items: []
                 }); // move to index 0
-                var lastItem = items.at(list.length() - 1);
+                var lastItem = items.at(items.length() - 1);
                 lastItem.moveToIndex(0);
               }
             }
