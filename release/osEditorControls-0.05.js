@@ -343,7 +343,7 @@
           init: function init() {
             this.addClass("area");
 
-            this.button("toolBtn").text("+ Function").clickTo("addFunction");
+            this.button("toolBtn").text("+ Function").clickTo("addFunction", this._activeFolder);
             //this.button("toolBtn").text("+ File").clickTo("addFile");
             //this.button("toolBtn").text("Open").clickTo("openFile");
             //this.button("toolBtn").text("Copy").clickTo("copyFile");
@@ -445,56 +445,6 @@
               if (v_i) {
                 var id = url.substring(v_i + 3, 3 + v_i + "WyZHXoOKYW4".length);
                 return id;
-              }
-            }
-          },
-          addFunction: function addFunction(withApp) {
-            if (!this._activeFolder) {
-              var newName = prompt("Give new name to function");
-              if (newName) {
-                if (withApp) {
-                  this.model().items.push({
-                    title: newName,
-                    icon: "fa fa-file",
-                    viewClass: "dataView1",
-                    "active": false,
-                    app: withApp
-                  });
-                } else {
-                  this.model().push({
-                    title: newName,
-                    icon: "fa fa-file",
-                    viewClass: "dataView1",
-                    "active": false
-                  }); // move to index 0
-                }
-                var list = this.model();
-                var lastItem = list.at(list.length() - 1);
-                lastItem.moveToIndex(0);
-              }
-            }
-            if (this._activeFolder && this._activeFolder.items) {
-              var newName = prompt("Give new name to function");
-              if (newName) {
-                if (withApp) {
-                  this._activeFolder.items.push({
-                    title: newName,
-                    icon: "fa fa-file",
-                    viewClass: "dataView1",
-                    "active": false,
-                    app: withApp
-                  });
-                } else {
-                  this._activeFolder.items.push({
-                    title: newName,
-                    icon: "fa fa-file",
-                    viewClass: "dataView1",
-                    "active": false
-                  }); // move to index 0
-                }
-                var list = this._activeFolder.items;
-                var lastItem = list.at(list.length() - 1);
-                lastItem.moveToIndex(0);
               }
             }
           },
