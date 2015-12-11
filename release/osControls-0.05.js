@@ -50,6 +50,20 @@
           init: function init() {
             //.addClass( item.get("active") ? "active" : "")
             var item = this.model();
+            if (item.get("itemId")) {
+              if (item.get("icon")) {
+                this.span("icon").span(item.get("icon"));
+              }
+              var itemData = _data(item.get("itemId"));
+              var vName = "title";
+              if (item.get("titleVar")) vName = item.get("titleVar");
+
+              this.span("title").bind(itemData, vName);
+              if (item.get("action")) {
+                this.clickTo(item.get("action"), item);
+              }
+              return;
+            }
             if (item.get("icon")) {
               this.span("icon").span(item.get("icon"));
             }
