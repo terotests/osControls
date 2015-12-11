@@ -545,6 +545,7 @@
             if (this._activeFile) this._contentArea.pushView(_e("fullFileDisplay", this._activeFile));
           },
           renameFile: function renameFile(elem) {
+            return;
             if (this._editTarget) {
               // ?? can open up window ??
               if (elem) {
