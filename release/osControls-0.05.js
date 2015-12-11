@@ -225,6 +225,8 @@
               return;
             } else {
               this.sendMsg("openMedia", item);
+              // ?? clear next level ??
+              this._nextLevel.clear();
               // this._nextLevel.pushView( _e("showFile", item))
               this.sendMsg("editTarget", item);
               this.sendMsg("activeFile", item);
