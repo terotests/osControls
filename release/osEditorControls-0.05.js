@@ -343,7 +343,7 @@
           init: function init() {
             this.addClass("area");
 
-            this.button("toolBtn").text("+ Function").clickTo("addFunction", this._lastActive);
+            this.button("toolBtn").text("+ Function").clickTo("toolbarAddFunction");
             //this.button("toolBtn").text("+ File").clickTo("addFile");
             //this.button("toolBtn").text("Open").clickTo("openFile");
             //this.button("toolBtn").text("Copy").clickTo("copyFile");
@@ -545,6 +545,9 @@
           activeFile: function activeFile(itemid) {
             this._activeFile = _data(itemid);
             this._lastActive = this._activeFile;
+          },
+          toolbarAddFunction: function toolbarAddFunction() {
+            this.send("addFunction", this._lastActive);
           },
           editTarget: function editTarget(itemid) {
             this._editTarget = _data(itemid);
