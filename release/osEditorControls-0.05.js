@@ -81,7 +81,7 @@
             c.bind(".fileArea", {
               "background-color": "white",
               "width": "100%",
-              "height": "600px",
+
               "text-align": "center",
               "padding": "20px"
             });
@@ -177,12 +177,10 @@
               "display": "table-cell",
               "vertical-align": "top",
               "text-align": "top",
-              "height": "600px",
               "width": "200px",
               "overflow": "auto"
             });
             c.bind(".ddList", {
-              "height": "600px",
               "overflow": "auto",
               "width": "200px"
             });
@@ -344,6 +342,7 @@
             this.addClass("area");
 
             this.button("toolBtn").text("+ Function").clickTo("toolbarAddFunction");
+            // this.button("toolBtn").text("+ Function").clickTo("toolbarRemoveFunction");
             //this.button("toolBtn").text("+ File").clickTo("addFile");
             //this.button("toolBtn").text("Open").clickTo("openFile");
             //this.button("toolBtn").text("Copy").clickTo("copyFile");
@@ -548,6 +547,9 @@
           },
           toolbarAddFunction: function toolbarAddFunction() {
             this.send("addFunction", this._lastActive);
+          },
+          toolbarRemoveFunction: function toolbarRemoveFunction() {
+            this.send("removeFunction", this._activeFile);
           },
           editTarget: function editTarget(itemid) {
             this._editTarget = _data(itemid);
